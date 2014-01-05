@@ -1,0 +1,1 @@
+{{ this.partial 'gems/list', gems: gems }}
