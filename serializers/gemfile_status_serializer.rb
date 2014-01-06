@@ -1,4 +1,4 @@
 class GemfileStatusSerializer < JsonSerializer
-  attribute :registered, :RubygemSerializer
+  attribute :registered, :RubyGemSerializer
   attribute :unregistered
 end

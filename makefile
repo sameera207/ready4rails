@@ -8,9 +8,6 @@ gems:
 install:
 		dep install
 
-migrate:
-		sequel -m ./db/migrations $$(env $$(cat env.sh) printenv DATABASE_URL)
-
 seed:
 		env $$(cat env.sh) ruby seeds.rb
 

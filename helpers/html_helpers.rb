@@ -4,11 +4,11 @@
 module HtmlHelpers
   def select_options pairs, current = nil
     pairs.map do |label, value|
-      tag :option, label, value: value, selected: (current == value)
-    end.join "\n"
+      tag(:option, label, value: value, selected: (current == value))
+    end.join("\n")
   end
 
-  def tag tag, content, attributes = {}
+  def tag(tag, content, attributes = {})
     if self_closing_tag?(tag)
       "<#{ tag }#{ tag_attributes(attributes) } />"
     else
@@ -16,7 +16,7 @@ module HtmlHelpers
     end
   end
 
-  def tag_attributes attributes = {}
+  def tag_attributes(attributes = {})
     attributes.inject([]) do |attribute, (key, value)|
       attribute << (' %s="%s"' % [key, escape_attribute(value)]) if value
       attribute
@@ -24,16 +24,16 @@ module HtmlHelpers
   end
 
   def escape_attribute attribute
-    attribute.to_s.gsub("'", '&#39;').gsub '"', '&quot;'
+    attribute.to_s.gsub("'", '&#39;').gsub('"', '&quot;')
   end
 
-  SELF_CLOSING_TAGS = [:area, :base, :basefont, :br, :hr, :input, :img, :link, :meta]
+  SELF_CLOSING_TAGS = %i(area base basefont br hr input img link meta)
 
-  def self_closing_tag? tag
-    SELF_CLOSING_TAGS.include? tag.to_sym
+  def self_closing_tag?(tag)
+    SELF_CLOSING_TAGS.include?(tag.to_sym)
   end
 
-  def h str
-    Rack::Utils.escape_html str
+  def h(str)
+    Rack::Utils.escape_html(str)
   end
 end

@@ -1,12 +1,8 @@
-ENV['DATABASE_URL'] = ENV['TEST_DATABASE_URL']
+ENV["REDIS_URL"] = "redis://localhost:6379/3"
 
-require 'cuba/test'
-require_relative '../app'
+require "cuba/test"
+require_relative "../app"
 
-class Cutest::Scope
-  def test(*)
-    result = nil
-    DB.transaction(rollback: :always) { result = super }
-    result
-  end
+prepare do
+  Ohm.flush
 end

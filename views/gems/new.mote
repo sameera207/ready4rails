@@ -1,4 +1,4 @@
-% statuses = Rubygem::STATUSES
+% statuses = RubyGem::STATUSES
 
 <form action="/gems" method="post">
   <input type="text" name="gem[name]" value="{{ gem.name }}">

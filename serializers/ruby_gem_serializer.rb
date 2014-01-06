@@ -1,4 +1,4 @@
-class RubygemSerializer < JsonSerializer
+class RubyGemSerializer < JsonSerializer
   attribute :id
   attribute :name
   attribute :status
