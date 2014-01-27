@@ -1,10 +1,10 @@
-class GemfileStatus
+class Gemfile
   EXCLUDED = %w(rails)
 
   attr :gems
 
-  def initialize(gems)
-    @gems = gems - EXCLUDED
+  def initialize(gemfile)
+    @gems = scan_gems(gemfile) - EXCLUDED
   end
 
   def registered
@@ -13,5 +13,11 @@ class GemfileStatus
 
   def unregistered
     gems - registered.map(&:name)
+  end
+
+  private
+
+  def scan_gems(gemfile)
+    gemfile.scan(/^[ \t]*gem\s+['"](\S+)['"]/).flatten
   end
 end

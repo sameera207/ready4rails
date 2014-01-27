@@ -6,13 +6,12 @@ class Gemfiles < Cuba
       render("gemfile", gemfile: nil)
     end
 
-    on post, param("gemfile") do |gemfile|
-      gems = GemfileParser.new(gemfile).gems
+    on post, param("content") do |content|
+      gemfile = Gemfile.new(content)
 
-      on !gems.empty? do
-        status = GemfileStatus.new(gems)
-        registered = status.registered
-        unregistered = status.unregistered
+      on !gemfile.gems.empty? do
+        registered = gemfile.registered
+        unregistered = gemfile.unregistered
 
         on accept("application/json") do
           json(registered: registered, unregistered: unregistered)
@@ -24,7 +23,7 @@ class Gemfiles < Cuba
       end
 
       on default do
-        render("gemfile", gemfile: gemfile)
+        render("gemfile", gemfile: content)
       end
     end
 

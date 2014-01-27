@@ -5,14 +5,14 @@ scope do
     gem = RubyGem.create(name: "registered", status: "ready")
 
     gems = [
-      excluded = GemfileStatus::EXCLUDED.sample,
+      excluded = Gemfile::EXCLUDED.sample,
       gem.name,
       unregistered = "unregistered"
     ]
 
     gemfile = gems.inject("") { |res, gem| res << "gem \"#{ gem }\"\n" }
 
-    post "/gemfile", { gemfile: gemfile }, { "HTTP_ACCEPT" => "application/json" }
+    post "/gemfile", { content: gemfile }, { "HTTP_ACCEPT" => "application/json" }
 
     json = JSON.parse(last_response.body)
 
