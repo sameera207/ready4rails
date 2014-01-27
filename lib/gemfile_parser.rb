@@ -3,7 +3,9 @@ class GemfileParser
     @gemfile = gemfile
   end
 
+  GEM_REGEXP = /^[ \t]*gem\s+['"](\S+)['"]/
+
   def gems
-    @gemfile.scan(/gem\s+['"](\S+)['"]/).flatten!
+    @gemfile.scan(GEM_REGEXP).flatten
   end
 end
