@@ -18,9 +18,8 @@
     <footer>
       <p>
         Cooked by <a href="http://frodsan.com">frodsan</a> and <a href="http://florentguilleux.fr">Florent</a>,
-        powered by <a href="http://cuba.is">Cuba</a>, dressed with <a href="http://bootswatch.com/spacelab/">Boostswatch Spacelab</a>,
-        hosted on <a href="http://heroku.com>">Heroku</a>, recipe at <a href="https://github.com/rubyperu/ready4rails4">GitHub: ready4rails4</a>.
-        Made in Perú.</p>
+        powered by <a href="http://cuba.is">Cuba</a>, dressed with <a href="http://bootswatch.com/spacelab/">Boostswatch Yeti</a> and
+        hosted on <a href="http://heroku.com>">Heroku</a>. Made in <a href="http://ruby.pe">PeRuby</a>.</p>
     </footer>
   </div>
 
