@@ -1,4 +1,4 @@
-require_relative '../lib/gemfile_parser'
+require_relative "../../lib/gemfile_parser"
 
 test 'scans gems from gemfile' do |gemfile|
   gemfile = <<EOS

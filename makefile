@@ -18,4 +18,4 @@ console:
 		env $$(cat env.sh) pry -r ./app.rb
 
 test:
-		env $$(cat env.sh) cutest test/**/*.rb
+		env $$(cat env.sh) cutest test/**/*_test.rb
