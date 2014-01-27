@@ -30,6 +30,7 @@ Cuba.plugin(RoutesHelper)
 Cuba.use(Rack::Session::Cookie, key: "ready4rails", secret: APP_SECRET)
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::Protection::RemoteReferrer)
+Cuba.use(Rack::Static, urls: ["css"], root: "./public")
 
 Cuba.define do
   on root do

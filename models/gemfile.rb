@@ -1,5 +1,5 @@
 class Gemfile
-  EXCLUDED = %w(rails)
+  EXCLUDED = ["rails"]
 
   attr :gems
 
