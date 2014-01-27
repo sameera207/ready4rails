@@ -7,7 +7,22 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-  {{ content }}
+  <div class="container">
+    <header>
+      <h1><a href="/">Is it ready for Rails 4?</a></h1>
+      <p>Check easily whether a gem is ready for Rails 4 or not.</p>
+    </header>
+
+    {{ content }}
+
+    <footer>
+      <p>
+        Cooked by <a href="http://frodsan.com">frodsan</a> and <a href="http://florentguilleux.fr">Florent</a>,
+        powered by <a href="http://cuba.is">Cuba</a>, dressed with <a href="http://bootswatch.com/spacelab/">Boostswatch Spacelab</a>,
+        hosted on <a href="http://heroku.com>">Heroku</a>, recipe at <a href="https://github.com/rubyperu/ready4rails4">GitHub: ready4rails4</a>.
+        Made in Perú.</p>
+    </footer>
+  </div>
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
