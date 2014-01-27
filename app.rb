@@ -12,6 +12,7 @@ Ohm.redis = Redic.new(REDIS_URL)
 Dir["./lib/**/*.rb"].each     { |f| require f }
 Dir["./models/**/*.rb"].each  { |f| require f }
 Dir["./helpers/**/*.rb"].each { |f| require f }
+Dir["./filters/**/*.rb"].each { |f| require f }
 Dir["./routes/**/*.rb"].each  { |f| require f }
 
 Cuba.plugin(Cuba::Mote)
