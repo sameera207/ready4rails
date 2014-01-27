@@ -8,7 +8,7 @@ class GemfileStatus
   end
 
   def registered
-    RubyGem.fetch_by(:name, gems)
+    RubyGem.fetch_by_name(gems)
   end
 
   def unregistered

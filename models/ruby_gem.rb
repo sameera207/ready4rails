@@ -14,10 +14,14 @@ class RubyGem < Ohm::Model
     all.sort_by(:updated_at, order: "ALPHA DESC", limit: [0, 25])
   end
 
-  def self.fetch_by(att, val)
-    keys = to_indices(att, val)
-    command = Ohm::Command.new(:sunionstore, *keys)
+  def self.fetch_by_name(names)
+    names = names.dup
+    result = find(name: names.pop)
 
-    Ohm::MultiSet.new(key, self, command)
+    names.each do |name|
+      result = result.union(name: name)
+    end
+
+    result
   end
 end
