@@ -3,6 +3,7 @@ require "cuba/mote"
 require "ohm"
 require "ohm/json"
 require "ohm/timestamps"
+require "rack/protection"
 require "scrivener"
 
 REDIS_URL = ENV.fetch("REDIS_URL")
@@ -18,6 +19,9 @@ Dir["./routes/**/*.rb"].each  { |f| require f }
 Cuba.plugin(Cuba::Mote)
 Cuba.plugin(HtmlHelper)
 Cuba.plugin(RoutesHelper)
+
+Cuba.use(Rack::Protection)
+Cuba.use(Rack::Protection::RemoteReferrer)
 
 Cuba.define do
   on root do
