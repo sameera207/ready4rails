@@ -1,7 +1,7 @@
 require "cuba"
 require "cuba/mote"
-require "json_serializer"
 require "ohm"
+require "ohm/json"
 require "ohm/timestamps"
 require "scrivener"
 

@@ -24,4 +24,8 @@ class RubyGem < Ohm::Model
 
     result
   end
+
+  def to_hash
+    super.merge!(name: name, status: status, notes: notes)
+  end
 end

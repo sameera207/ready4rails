@@ -1,7 +1,6 @@
 cuba -v 3.1.0
 cuba-contrib -v 3.1.0
 cutest -v 1.2.1
-json-serializer -v 0.0.4
 mote -v 1.1.2
 ohm -v 2.0.0.rc1
 ohm-contrib -v 2.0.0.rc1

@@ -3,7 +3,7 @@ class Gemfiles < Cuba
 
   define do
     on get, root do
-      render "gemfile", gemfile: nil
+      render("gemfile", gemfile: nil)
     end
 
     on post, param("gemfile") do |gemfile|
@@ -11,20 +11,20 @@ class Gemfiles < Cuba
 
       on !gems.empty? do
         status = GemfileStatus.new(gems)
+        registered = status.registered
+        unregistered = status.unregistered
 
         on accept("application/json") do
-          json GemfileStatusSerializer.new(status)
+          json(registered: registered, unregistered: unregistered)
         end
 
         on default do
-          render "gemfile/status",
-            registered: status.registered,
-            unregistered: status.unregistered
+          render("gemfile/status", registered: registered, unregistered: unregistered)
         end
       end
 
       on default do
-        render "gemfile", gemfile: gemfile
+        render("gemfile", gemfile: gemfile)
       end
     end
 
