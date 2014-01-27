@@ -8,7 +8,7 @@ class Gemfile
   end
 
   def registered
-    @registered ||= RubyGem.fetch_by_name(gems)
+    RubyGem.fetch_by_name(gems)
   end
 
   def unregistered
