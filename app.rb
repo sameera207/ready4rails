@@ -6,6 +6,7 @@ require "ohm/timestamps"
 require "rack/protection"
 require "scrivener"
 
+APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("REDIS_URL")
 
 Ohm.redis = Redic.new(REDIS_URL)
@@ -20,6 +21,7 @@ Cuba.plugin(Cuba::Mote)
 Cuba.plugin(HtmlHelper)
 Cuba.plugin(RoutesHelper)
 
+Cuba.use(Rack::Session::Cookie, key: "ready4rails", secret: APP_SECRET)
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::Protection::RemoteReferrer)
 
