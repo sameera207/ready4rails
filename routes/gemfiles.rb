@@ -1,4 +1,4 @@
-class Gemfile < Cuba
+class Gemfiles < Cuba
   plugin GemfileHelpers
 
   define do

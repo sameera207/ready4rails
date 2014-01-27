@@ -30,7 +30,7 @@ Cuba.define do
   end
 
   on "gemfile" do
-    run Gemfile
+    run Gemfiles
   end
 
   on default do
