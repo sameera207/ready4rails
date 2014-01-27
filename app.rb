@@ -7,29 +7,28 @@ require "scrivener"
 
 REDIS_URL = ENV.fetch("REDIS_URL")
 
-Cuba.plugin Cuba::Mote
-
 Ohm.redis = Redic.new(REDIS_URL)
 
-Dir["./lib/**/*.rb"].each         { |f| require f }
-Dir["./models/**/*.rb"].each      { |f| require f }
-Dir["./helpers/**/*.rb"].each     { |f| require f }
-Dir["./routes/**/*.rb"].each      { |f| require f }
+Dir["./lib/**/*.rb"].each     { |f| require f }
+Dir["./models/**/*.rb"].each  { |f| require f }
+Dir["./helpers/**/*.rb"].each { |f| require f }
+Dir["./routes/**/*.rb"].each  { |f| require f }
 
-Cuba.plugin HtmlHelpers
-Cuba.plugin RoutesHelpers
+Cuba.plugin(Cuba::Mote)
+Cuba.plugin(HtmlHelper)
+Cuba.plugin(RoutesHelper)
 
 Cuba.define do
   on root do
-    res.redirect "/gems"
+    res.redirect("/gems")
   end
 
   on "gems" do
-    run Gems
+    run(Gems)
   end
 
   on "gemfile" do
-    run Gemfiles
+    run(Gemfiles)
   end
 
   on default do

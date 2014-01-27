@@ -1,6 +1,6 @@
 require_relative "../../lib/gemfile_parser"
 
-test 'scans gems from gemfile' do |gemfile|
+test "scans gems from gemfile" do |gemfile|
   gemfile = <<EOS
 source "https://rubygems.org"
 
@@ -12,7 +12,7 @@ gem "puma", '2.0.0'
 gem 'coffee-rails'
 EOS
 
-  expected = ['rails', 'pg', 'puma', 'coffee-rails']
+  expected = %w(rails pg puma coffee-rails)
 
   assert_equal expected, GemfileParser.new(gemfile).gems
 end

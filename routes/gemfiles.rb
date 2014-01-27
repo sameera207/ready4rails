@@ -1,5 +1,5 @@
 class Gemfiles < Cuba
-  plugin GemfileHelpers
+  plugin GemfilesHelper
 
   define do
     on get, root do

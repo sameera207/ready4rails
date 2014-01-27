@@ -1,4 +1,4 @@
-module GemfileHelpers
+module GemfilesHelper
   def link_gems(names)
     names.map { |name| tag(:a, name, href: "/gems/new?name=#{ name }") }
   end

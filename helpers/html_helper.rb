@@ -1,8 +1,8 @@
 # Adapted from sinatra-support/htmlhelpers.rb
 # (https://github.com/sinefunc/sinatra-support/)
 #
-module HtmlHelpers
-  def select_options pairs, current = nil
+module HtmlHelper
+  def select_options(pairs, current = nil)
     pairs.map do |label, value|
       tag(:option, label, value: value, selected: (current == value))
     end.join("\n")
@@ -23,7 +23,7 @@ module HtmlHelpers
     end.join
   end
 
-  def escape_attribute attribute
+  def escape_attribute(attribute)
     attribute.to_s.gsub("'", '&#39;').gsub('"', '&quot;')
   end
 

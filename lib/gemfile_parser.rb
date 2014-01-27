@@ -1,9 +1,9 @@
 class GemfileParser
-  def initialize gemfile
+  def initialize(gemfile)
     @gemfile = gemfile
   end
 
   def gems
-    @gemfile.scan(/gem\s+['"](\S+)['"]/).flatten
+    @gemfile.scan(/gem\s+['"](\S+)['"]/).flatten!
   end
 end

@@ -1,14 +1,14 @@
 class GemfileStatus
-  EXCLUDED = ["rails"]
+  EXCLUDED = %w(rails)
 
   attr :gems
 
-  def initialize gems
+  def initialize(gems)
     @gems = gems - EXCLUDED
   end
 
   def registered
-    RubyGem.fetch_by_name(gems)
+    @registered ||= RubyGem.fetch_by_name(gems)
   end
 
   def unregistered
