@@ -3,9 +3,10 @@
 <form action="/gems" method="post">
   <input type="text" name="gem[name]" value="{{ gem.name }}">
 
-  <select name="gem[status]">
-    {{ this.select_options statuses.zip(statuses), gem.status }}
-  </select>
+  % statuses.each do |status|
+    <input type="radio" name="gem[status]" value="{{ status }}">
+    <label>{{ status }}<label>
+  % end
 
   <textarea name="gem[notes]">{{ gem.notes }}</textarea>
 
