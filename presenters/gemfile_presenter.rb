@@ -12,18 +12,14 @@ class GemfilePresenter
   end
 
   def unregistered_links
-    to_sentence(new_gem_links)
+    new_gem_links(unregistered).join(", ")
   end
 
   private
 
-  def new_gem_links
-    @gemfile.unregistered.map do |name|
+  def new_gem_links(names)
+    names.map do |name|
       "<a href=\"/gems/new?name=#{name}\">#{name}</a>"
     end
-  end
-
-  def to_sentence(items)
-    "#{ items[0...-1].join(", ") } and #{ items[-1] }"
   end
 end
