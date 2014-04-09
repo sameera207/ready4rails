@@ -19,6 +19,7 @@ Cuba.use(Rack::Static, urls: ["css"], root: "./public")
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::Protection::RemoteReferrer)
 
+Dir["./librails/**/*.rb"].each { |f| require(f) }
 Dir["./models/**/*.rb"].each { |f| require(f) }
 Dir["./filters/**/*.rb"].each { |f| require(f) }
 Dir["./helpers/**/*.rb"].each { |f| require(f) }
