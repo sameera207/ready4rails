@@ -1,28 +1,14 @@
-class RubyGem < Ohm::Model
-  include Ohm::Timestamps
+class RubyGem < Sequel::Model
+  plugin(:timestamps, update_on_create: true)
 
   STATUSES = %w(ready not_ready unknown)
 
-  attribute :name
-  attribute :status
-  attribute :notes
-
-  index :name
-  index :status
-
-  def self.recent
-    all.sort_by(:updated_at, order: "ALPHA DESC", limit: [0, 25])
+  def self.search(name)
+    where(Sequel.ilike(:name, name))
   end
 
-  def self.fetch_by_name(names)
-    names = names.dup
-    result = find(name: names.pop)
-
-    names.each do |name|
-      result = result.union(name: name)
-    end
-
-    result
+  def self.recent
+    order(:updated_at).offset(0).limit(25)
   end
 
   def to_hash

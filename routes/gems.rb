@@ -5,7 +5,7 @@ class Gems < Cuba
     end
 
     on "search", param("name") do |name|
-      render("gems", gems: RubyGem.find(name: name))
+      render("gems", gems: RubyGem.search(name))
     end
 
     on "new" do
@@ -13,7 +13,7 @@ class Gems < Cuba
     end
 
     on "status/:status" do |status|
-      gems = RubyGem.find(status: status)
+      gems = RubyGem.where(status: status)
 
       on !gems.empty? do
         render("gems", gems: gems)

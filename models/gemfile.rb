@@ -1,18 +1,20 @@
 class Gemfile
   EXCLUDED = ["rails"]
 
-  attr :gems
-
   def initialize(gemfile)
     @gems = scan_gems(gemfile) - EXCLUDED
   end
 
   def registered
-    RubyGem.fetch_by_name(gems)
+    @registered ||= RubyGem.where(name: @gems).all
   end
 
   def unregistered
-    gems - registered.map(&:name)
+    @gems - registered.map(&:name)
+  end
+
+  def empty?
+    @gems.empty?
   end
 
   private

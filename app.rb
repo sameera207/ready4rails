@@ -1,30 +1,30 @@
 require "cuba"
 require "cuba/mote"
-require "ohm"
-require "ohm/json"
-require "ohm/timestamps"
 require "rack/protection"
 require "scrivener"
+require "sequel"
 
+APP_KEY = ENV.fetch("APP_KEY")
 APP_SECRET = ENV.fetch("APP_SECRET")
-REDIS_URL = ENV.fetch("REDIS_URL")
+DATABASE_URL = ENV.fetch("DATABASE_URL")
 
-Ohm.redis = Redic.new(REDIS_URL)
+Sequel.connect(DATABASE_URL)
 
 Cuba.plugin(Cuba::Mote)
 
-Dir["./models/**/*.rb"].each  { |f| require f }
-Dir["./helpers/**/*.rb"].each { |f| require f }
-Dir["./filters/**/*.rb"].each { |f| require f }
-Dir["./routes/**/*.rb"].each  { |f| require f }
+Cuba.use(Rack::Session::Cookie, key: APP_KEY, secret: APP_SECRET)
+Cuba.use(Rack::Static, urls: ["css"], root: "./public")
+
+Cuba.use(Rack::Protection)
+Cuba.use(Rack::Protection::RemoteReferrer)
+
+Dir["./models/**/*.rb"].each  { |f| require(f) }
+Dir["./filters/**/*.rb"].each { |f| require(f) }
+Dir["./helpers/**/*.rb"].each { |f| require(f) }
+Dir["./routes/**/*.rb"].each  { |f| require(f) }
 
 Cuba.plugin(HtmlHelper)
 Cuba.plugin(RoutesHelper)
-
-Cuba.use(Rack::Session::Cookie, key: "ready4rails", secret: APP_SECRET)
-Cuba.use(Rack::Protection)
-Cuba.use(Rack::Protection::RemoteReferrer)
-Cuba.use(Rack::Static, urls: ["css"], root: "./public")
 
 Cuba.define do
   on root do

@@ -1,4 +1,4 @@
-{{ this.partial 'gems/list', gems: registered }}
+{{ this.partial("gems/list", gems: registered) }}
 
 % if unregistered.any?
   <p>

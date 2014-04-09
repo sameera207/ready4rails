@@ -1,1 +1,1 @@
-{{ this.partial 'gems/list', gems: gems }}
+{{ this.partial("gems/list", gems: gems) }}

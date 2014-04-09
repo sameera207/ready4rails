@@ -9,7 +9,7 @@ class Gemfiles < Cuba
     on post, param("content") do |content|
       gemfile = Gemfile.new(content)
 
-      on !gemfile.gems.empty? do
+      on !gemfile.empty? do
         registered = gemfile.registered
         unregistered = gemfile.unregistered
 
