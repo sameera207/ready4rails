@@ -23,8 +23,8 @@ Dir["./filters/**/*.rb"].each { |f| require(f) }
 Dir["./helpers/**/*.rb"].each { |f| require(f) }
 Dir["./routes/**/*.rb"].each  { |f| require(f) }
 
-Cuba.plugin(HtmlHelper)
-Cuba.plugin(RoutesHelper)
+Cuba.plugin(Helpers::HTMLHelpers)
+Cuba.plugin(Helpers::RouteHelpers)
 
 Cuba.define do
   on root do
