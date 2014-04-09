@@ -1,7 +1,7 @@
 module Helpers
   module HTMLHelpers
     def h(str)
-      Rack::Utils.escape_html(str)
+      Hache.h(str)
     end
   end
 end

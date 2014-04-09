@@ -1,5 +1,6 @@
 require "cuba"
 require "cuba/mote"
+require "hache"
 require "rack/protection"
 require "scrivener"
 require "sequel"
