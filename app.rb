@@ -4,22 +4,15 @@ require "ohm"
 require "ohm/json"
 require "ohm/timestamps"
 require "rack/protection"
-require "requests"
 require "scrivener"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
-GITHUB_CLIENT_ID = ENV.fetch("GITHUB_CLIENT_ID")
-GITHUB_CLIENT_SECRET = ENV.fetch("GITHUB_CLIENT_SECRET")
-GITHUB_OAUTH_AUTHORIZE = ENV.fetch("GITHUB_OAUTH_AUTHORIZE")
-GITHUB_OAUTH_ACCESS_TOKEN = ENV.fetch("GITHUB_OAUTH_ACCESS_TOKEN")
-GITHUB_FETCH_USER = ENV.fetch("GITHUB_FETCH_USER")
 REDIS_URL = ENV.fetch("REDIS_URL")
 
 Ohm.redis = Redic.new(REDIS_URL)
 
 Cuba.plugin(Cuba::Mote)
 
-Dir["./lib/**/*.rb"].each     { |f| require f }
 Dir["./models/**/*.rb"].each  { |f| require f }
 Dir["./helpers/**/*.rb"].each { |f| require f }
 Dir["./filters/**/*.rb"].each { |f| require f }
