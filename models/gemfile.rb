@@ -10,7 +10,7 @@ class Gemfile
   end
 
   def unregistered
-    @gems - registered.map(&:name)
+    @unregistered ||= @gems - registered.map(&:name)
   end
 
   def empty?

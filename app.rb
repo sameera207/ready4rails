@@ -19,13 +19,14 @@ Cuba.use(Rack::Static, urls: ["css"], root: "./public")
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::Protection::RemoteReferrer)
 
-Dir["./models/**/*.rb"].each  { |f| require(f) }
+Dir["./models/**/*.rb"].each { |f| require(f) }
 Dir["./filters/**/*.rb"].each { |f| require(f) }
 Dir["./helpers/**/*.rb"].each { |f| require(f) }
-Dir["./routes/**/*.rb"].each  { |f| require(f) }
+Dir["./presenters/**/*.rb"].each { |f| require(f) }
+Dir["./routes/**/*.rb"].each { |f| require(f) }
 
-Cuba.plugin(Helpers::HTMLHelpers)
-Cuba.plugin(Helpers::RouteHelpers)
+Cuba.plugin(HTMLHelpers)
+Cuba.plugin(RouteHelpers)
 
 Cuba.define do
   on root do

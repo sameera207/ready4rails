@@ -1,6 +1,4 @@
 class Gemfiles < Cuba
-  plugin GemfilesHelper
-
   define do
     on get, root do
       render("gemfile", gemfile: nil)
@@ -10,10 +8,7 @@ class Gemfiles < Cuba
       gemfile = Gemfile.new(content)
 
       on !gemfile.empty? do
-        registered = gemfile.registered
-        unregistered = gemfile.unregistered
-
-        render("gemfile/status", registered: registered, unregistered: unregistered)
+        render("gemfile/status", presenter: GemfilePresenter.new(gemfile))
       end
 
       on default do
