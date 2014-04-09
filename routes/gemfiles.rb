@@ -13,13 +13,7 @@ class Gemfiles < Cuba
         registered = gemfile.registered
         unregistered = gemfile.unregistered
 
-        on accept("application/json") do
-          json(registered: registered, unregistered: unregistered)
-        end
-
-        on default do
-          render("gemfile/status", registered: registered, unregistered: unregistered)
-        end
+        render("gemfile/status", registered: registered, unregistered: unregistered)
       end
 
       on default do
