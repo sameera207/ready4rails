@@ -5,12 +5,25 @@
   <title>Ready for Rails 4?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="/css/style.css" rel="stylesheet" media="screen">
 </head>
 <body>
   <div class="container">
     <header>
       <h1><a href="/">Is it ready for Rails 4?</a></h1>
       <p>Check easily whether a gem is ready for Rails 4 or not.</p>
+
+      <div class="well">
+        <form action="/gems/search">
+          <a class="btn btn-primary" href="/gemfile">Upload a Gemfile</a>
+          <span class="or">OR</span>
+          <input name="name" type="text" class="input-large"
+            placeholder="Search the name of a gem" autofocus="autofocus"/>
+          <a class="btn btn-success pull-right" href="/gems/new">
+            Register a new gem
+          </a>
+        </form>
+      </div>
     </header>
 
     {{ content }}

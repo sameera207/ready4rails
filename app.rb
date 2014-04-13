@@ -31,7 +31,7 @@ Cuba.plugin(RouteHelpers)
 
 Cuba.define do
   on root do
-    res.redirect("/gems")
+    render("gems", gems: RubyGem.recent)
   end
 
   on "gems" do
