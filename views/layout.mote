@@ -1,38 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
   <title>Ready for Rails 4?</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="/css/style.css" rel="stylesheet" media="screen">
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="/css/style.css" rel="stylesheet"/>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1><a href="/">Is it ready for Rails 4?</a></h1>
-      <p>Check easily whether a gem is ready for Rails 4 or not.</p>
-
-      <div class="well">
-        <form action="/gems/search">
-          <a class="btn btn-primary" href="/gemfile">Upload a Gemfile</a>
-          <span class="or">OR</span>
-          <input name="name" type="text" class="input-large"
-            placeholder="Search the name of a gem" autofocus="autofocus"/>
-          <a class="btn btn-success pull-right" href="/gems/new">
-            Register a new gem
-          </a>
-        </form>
-      </div>
+      <h1>Ready for Rails 4?</h1>
     </header>
 
     {{ content }}
 
     <footer>
       <p>
-        Cooked by <a href="http://frodsan.com">frodsan</a> and <a href="http://florentguilleux.fr">Florent</a>,
-        powered by <a href="http://cuba.is">Cuba</a>, dressed with <a href="http://bootswatch.com/spacelab/">Boostswatch Yeti</a> and
-        hosted on <a href="http://heroku.com>">Heroku</a>. Made in <a href="http://ruby.pe">PeRuby</a>.</p>
+        Cooked by <a href="http://frodsan.me">frodsan</a>
+        and <a href="http://florentguilleux.fr">Florent</a>,
+        powered by <a href="http://cuba.is">Cuba</a>.
+      </p>
     </footer>
   </div>
 

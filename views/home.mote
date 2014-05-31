@@ -1,0 +1,9 @@
+<h2>Recent gems:</h2>
+
+<ul class="gems">
+  % gems.each do |gem|
+    <li>
+      {{ gem.name }}
+    </li>
+  % end
+</ul>
