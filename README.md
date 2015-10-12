@@ -1,3 +1,5 @@
+(this legacy branch "cuba-version" is a Cuba version of the application, it is no longer in use)
+
 # Is this gem ready for Rails X?
 
 **NOTE:** Currently, we only support Rails 4.
